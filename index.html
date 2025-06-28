@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katie Yelifari - Model Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Enhanced Geometric background elements */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+        }
+        
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            top: 5%;
+            right: 15%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+            top: 15%;
+            left: 10%;
+            transform: rotate(45deg);
+            animation: rotate 8s linear infinite;
+        }
+        
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #fff;
+            top: 25%;
+            right: 30%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .shape-4 {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.05);
+            top: 8%;
+            left: 25%;
+            transform: rotate(30deg);
+            animation: rotate 12s linear infinite reverse;
+        }
+        
+        .shape-5 {
+            width: 120px;
+            height: 120px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            top: 12%;
+            right: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        .shape-6 {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            top: 20%;
+            left: 60%;
+            transform: rotate(60deg);
+            animation: pulse 6s ease-in-out infinite;
+        }
+        
+        .shape-7 {
+            width: 180px;
+            height: 180px;
+            border: 1px dashed rgba(255,255,255,0.2);
+            top: 3%;
+            left: 40%;
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.08; }
+            50% { transform: scale(1.1); opacity: 0.15; }
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        
+        .model-name {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-email {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        /* Navigation Tabs */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 4px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .tab-btn.active {
+            background: #fff;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .gallery-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .gallery-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #fff;
+        }
+        
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .photo-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+        }
+        
+        .photo-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .photo-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Modal for expanded galleries */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal.active {
+            display: block;
+        }
+        
+        .modal-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .modal-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .modal-photo {
+            aspect-ratio: 3/4;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Add Photo Button */
+        .add-photo-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 10px;
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            gap: 1rem;
+        }
+        
+        .add-photo-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .add-icon {
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        
+        /* About Me Section */
+        .about-section {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .about-photo {
+            aspect-ratio: 3/4;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #fff;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .social-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-contact {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .tab-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .modal-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Geometric Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+        <div class="shape shape-6"></div>
+        <div class="shape shape-7"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1 class="logo">PORTFOLIO</h1>
+        <div class="model-name">Katie Yelifari</div>
+        <p class="tagline">Professional Modeling & Fashion</p>
+        <a href="mailto:katie@example.com" class="contact-email">katie@example.com</a>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showGallery('brands')">Brands</button>
+            <button class="tab-btn" onclick="showGallery('editorial')">Editorial</button>
+            <button class="tab-btn" onclick="showGallery('commercial')">Commercial</button>
+            <button class="tab-btn" onclick="showGallery('videos')">Videos</button>
+            <button class="tab-btn" onclick="showGallery('runway')">Runway</button>
+        </div>
+    </div>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <!-- Brands Section -->
+        <div id="brands" class="gallery-section active">
+            <h2 class="section-title">Brand Collaborations</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal('nike-campaign')">
+                    <div class="photo-placeholder">
+                        Nike Campaign
+                        <div class="photo-overlay">
+                            <div class="photo-title">Nike Athletic Wear</div>
+                            <div class="photo-description">Spring 2024 Campaign - Click to view full series</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('luxury-brand')">
+                    <div class="photo-placeholder">
+                        Luxury Brand
+                        <div class="photo-overlay">
+                            <div class="photo-title">High Fashion Brand</div>
+                            <div class="photo-description">Exclusive Collection - Click to view full series</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('beauty-brand')">
+                    <div class="photo-placeholder">
+                        Beauty Brand
+                        <div class="photo-overlay">
+                            <div class="photo-title">Cosmetics Campaign</div>
+                            <div class="photo-description">Beauty Line Launch - Click to view full series</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-photo-btn" onclick="addPhoto('brands')">
+                    <div class="add-icon">+</div>
+                    <div>Add Campaign</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editorial Section -->
+        <div id="editorial" class="gallery-section">
+            <h2 class="section-title">Editorial Work</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal('vogue-editorial')">
+                    <div class="photo-placeholder">
+                        Vogue Editorial
+                        <div class="photo-overlay">
+                            <div class="photo-title">Magazine Cover Story</div>
+                            <div class="photo-description">Vogue Feature - Click to view full editorial</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('harpers-editorial')">
+                    <div class="photo-placeholder">
+                        Harper's Bazaar
+                        <div class="photo-overlay">
+                            <div class="photo-title">Fashion Editorial</div>
+                            <div class="photo-description">Harper's Bazaar Spread - Click to view full editorial</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-photo-btn" onclick="addPhoto('editorial')">
+                    <div class="add-icon">+</div>
+                    <div>Add Editorial</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commercial Section -->
+        <div id="commercial" class="gallery-section">
+            <h2 class="section-title">Commercial Work</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal('tech-commercial')">
+                    <div class="photo-placeholder">
+                        Tech Campaign
+                        <div class="photo-overlay">
+                            <div class="photo-title">Technology Brand</div>
+                            <div class="photo-description">Product Launch Campaign - Click to view full series</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('lifestyle-commercial')">
+                    <div class="photo-placeholder">
+                        Lifestyle Brand
+                        <div class="photo-overlay">
+                            <div class="photo-title">Lifestyle Campaign</div>
+                            <div class="photo-description">Brand Advertisement - Click to view full series</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-photo-btn" onclick="addPhoto('commercial')">
+                    <div class="add-icon">+</div>
+                    <div>Add Commercial</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Videos Section -->
+        <div id="videos" class="gallery-section">
+            <h2 class="section-title">Video Content</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal('fashion-video')">
+                    <div class="photo-placeholder">
+                        Fashion Film
+                        <div class="photo-overlay">
+                            <div class="photo-title">Editorial Fashion Film</div>
+                            <div class="photo-description">Behind the scenes & final cut</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('commercial-video')">
+                    <div class="photo-placeholder">
+                        Commercial Video
+                        <div class="photo-overlay">
+                            <div class="photo-title">Brand Commercial</div>
+                            <div class="photo-description">TV & Digital Advertisement</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-photo-btn" onclick="addPhoto('videos')">
+                    <div class="add-icon">+</div>
+                    <div>Add Video</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Runway Section -->
+        <div id="runway" class="gallery-section">
+            <h2 class="section-title">Runway Shows</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal('fashion-week')">
+                    <div class="photo-placeholder">
+                        Fashion Week
+                        <div class="photo-overlay">
+                            <div class="photo-title">New York Fashion Week</div>
+                            <div class="photo-description">Designer Runway Shows - Click to view collection</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card" onclick="openModal('designer-show')">
+                    <div class="photo-placeholder">
+                        Designer Show
+                        <div class="photo-overlay">
+                            <div class="photo-title">Luxury Designer</div>
+                            <div class="photo-description">Exclusive Runway Show - Click to view collection</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-photo-btn" onclick="addPhoto('runway')">
+                    <div class="add-icon">+</div>
+                    <div>Add Runway</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="about-section">
+        <div class="about-container">
+            <div class="about-photo">
+                About Photo Placeholder
+            </div>
+            <div class="about-content">
+                <h2>About Katie</h2>
+                <div class="about-text">
+                    Welcome to my portfolio! I'm Katie Yelifari, a professional model with a passion for fashion, beauty, and storytelling through imagery. With experience spanning editorial shoots, commercial campaigns, and runway shows, I bring versatility and professionalism to every project.
+                    <br><br>
+                    I believe in the power of collaboration and creative vision. Whether working with established brands or emerging designers, I'm committed to bringing your creative concepts to life with authenticity and style.
+                </div>
+                <div class="social-platforms">
+                    <a href="#" class="social-btn">Instagram</a>
+                    <a href="#" class="social-btn">TikTok</a>
+                    <a href="#" class="social-btn">Twitter</a>
+                    <a href="#" class="social-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for expanded galleries -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title" id="modal-title">Campaign Gallery</h2>
+            <div class="modal-grid" id="modal-grid">
+                <!-- Photos will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-contact">
+            <p>&copy; 2024 Katie Yelifari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showGallery(sectionId) {
+            // Hide all gallery sections
+            const sections = document.querySelectorAll('.gallery-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        function addPhoto(category) {
+            alert(`Add photo functionality for ${category} category would be implemented here. This would typically open a file dialog or connect to a photo management system.`);
+        }
+        
+        // Modal functionality
+        const campaigns = {
+            'nike-campaign': {
+                title: 'Nike Athletic Wear Campaign',
+                photos: [
+                    'Nike Campaign Photo 1',
+                    'Nike Campaign Photo 2', 
+                    'Nike Campaign Photo 3',
+                    'Nike Campaign Photo 4',
+                    'Nike Campaign Photo 5',
+                    'Nike Campaign Photo 6'
+                ]
+            },
+            'luxury-brand': {
+                title: 'Luxury Fashion Brand',
+                photos: [
+                    'Luxury Brand Photo 1',
+                    'Luxury Brand Photo 2',
+                    'Luxury Brand Photo 3',
+                    'Luxury Brand Photo 4'
+                ]
+            },
+            'beauty-brand': {
+                title: 'Beauty Campaign',
+                photos: [
+                    'Beauty Campaign Photo 1',
+                    'Beauty Campaign Photo 2',
+                    'Beauty Campaign Photo 3',
+                    'Beauty Campaign Photo 4',
+                    'Beauty Campaign Photo 5'
+                ]
+            },
+            'vogue-editorial': {
+                title: 'Vogue Editorial Spread',
+                photos: [
+                    'Vogue Editorial Photo 1',
+                    'Vogue Editorial Photo 2',
+                    'Vogue Editorial Photo 3',
+                    'Vogue Editorial Photo 4'
+                ]
+            },
+            'harpers-editorial': {
+                title: 'Harper\'s Bazaar Feature',
+                photos: [
+                    'Harper\'s Bazaar Photo 1',
+                    'Harper\'s Bazaar Photo 2',
+                    'Harper\'s Bazaar Photo 3'
+                ]
+            },
+            'tech-commercial': {
+                title: 'Technology Brand Campaign',
+                photos: [
+                    'Tech Commercial Photo 1',
+                    'Tech Commercial Photo 2',
+                    'Tech Commercial Photo 3',
+                    'Tech Commercial Photo 4'
+                ]
+            },
+            'lifestyle-commercial': {
+                title: 'Lifestyle Brand Campaign',
+                photos: [
+                    'Lifestyle Photo 1',
+                    'Lifestyle Photo 2',
+                    'Lifestyle Photo 3'
+                ]
+            },
+            'fashion-video': {
+                title: 'Fashion Film Content',
+                photos: [
+                    'Fashion Video Still 1',
+                    'Fashion Video Still 2',
+                    'Behind the Scenes 1',
+                    'Behind the Scenes 2'
+                ]
+            },
+            'commercial-video': {
+                title: 'Commercial Video Content',
+                photos: [
+                    'Commercial Video Still 1',
+                    'Commercial Video Still 2',
+                    'Commercial BTS 1'
+                ]
+            },
+            'fashion-week': {
+                title: 'New York Fashion Week',
+                photos: [
+                    'NYFW Runway Photo 1',
+                    'NYFW Runway Photo 2',
+                    'NYFW Runway Photo 3',
+                    'NYFW Backstage 1',
+                    'NYFW Backstage 2'
+                ]
+            },
+            'designer-show': {
+                title: 'Luxury Designer Runway',
+                photos: [
+                    'Designer Runway Photo 1',
+                    'Designer Runway Photo 2',
+                    'Designer Runway Photo 3'
+                ]
+            }
+        };
+        
+        function openModal(campaignId) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalGrid = document.getElementById('modal-grid');
+            
+            const campaign = campaigns[campaignId];
+            if (!campaign) return;
+            
+            modalTitle.textContent = campaign.title;
+            
+            // Clear existing photos
+            modalGrid.innerHTML = '';
+            
+            // Add photos to modal
+            campaign.photos.forEach(photo => {
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'modal-photo';
+                photoDiv.textContent = photo;
+                modalGrid.appendChild(photoDiv);
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelector('.gallery-container').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
