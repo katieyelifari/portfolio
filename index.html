@@ -390,6 +390,8 @@
             justify-content: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
+
+        
         
         /* Add Photo Button */
         .add-photo-btn {
@@ -514,6 +516,57 @@
                 transform: translateY(0);
             }
         }
+     
+        .gallery img.thumb {
+          width: 150px;
+          cursor: pointer;
+          margin: 5px;
+          border: 2px solid #ccc;
+          transition: border-color 0.3s;
+        }
+
+        .gallery img.thumb:hover {
+          border-color: #333;
+        }
+
+        /* Hide lightbox by default */
+        .lightbox {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.8);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          z-index: 999;
+        }
+
+        /* Show lightbox when targeted */
+        .lightbox:target {
+          display: flex;
+        }
+
+        /* Image in lightbox */
+        .lightbox img {
+          max-width: 90%;
+          max-height: 90%;
+          box-shadow: 0 0 25px black;
+          border-radius: 4px;
+        }
+
+        /* Close button (covers entire lightbox) */
+        .lightbox .close {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          text-indent: -9999px;
+        }
+
+
         
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -782,6 +835,35 @@
         </div>
     </footer>
 
+
+    
+    <!-- Photo thumbnails -->
+    <div class="gallery">
+      <a href="#dstortd-img1">
+        <img src="main_dstortd.JPG" class="thumb">
+      </a>
+        
+      <a href="#dstortd-img2">
+        <img src="dstortd_2.JPG" class="thumb">
+      </a>
+      <!-- Repeat for other photos -->
+    </div>
+
+    <!-- Lightbox containers -->
+    <div id="dstortd-img1" class="lightbox">
+      <a href="#" class="close"></a>
+      <img src="main_dstortd.JPG">
+    </div>
+
+    <div id="dstortd-img2" class="lightbox">
+      <a href="#" class="close"></a>
+      <img src="dstortd_2.JPG">
+    </div>
+    <!-- Repeat for other photos -->
+
+
+
+
     <script>
         function showGallery(sectionId) {
             // Hide all gallery sections
@@ -810,8 +892,8 @@
             'dstortd-campaign': {
                 title: 'Dstortd Tempe Sneaker Store Campaign',
                 photos: [
-                    'Dstortd Campaign Photo 1',
-                    'Dstortd Campaign Photo 2', 
+                    'main_dstortd.JPG',
+                    'dstortd_2.JPG', 
                     'Dstortd Campaign Photo 3',
                     'Dstortd Campaign Photo 4',
                     'Dstortd Campaign Photo 5',
