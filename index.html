@@ -536,11 +536,11 @@
           left: 0;
           width: 100vw;
           height: 100vh;
-          background: rgba(0,0,0,0.8);
+          background: rgba(0,0,0,0.85);
           display: none;
           justify-content: center;
           align-items: center;
-          z-index: 999;
+          z-index: 1000;
         }
 
         /* Show lightbox when targeted */
@@ -552,8 +552,8 @@
         .lightbox img {
           max-width: 90%;
           max-height: 90%;
-          box-shadow: 0 0 25px black;
-          border-radius: 4px;
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+          border-radius: 8px;
         }
 
         /* Close button (covers entire lightbox) */
@@ -839,23 +839,23 @@
     
     <!-- Photo thumbnails -->
     <div class="gallery">
-      <a href="#dstortd-img1">
+      <a href="#lightbox-main_dstortd.JPG">
         <img src="main_dstortd.JPG" class="thumb">
       </a>
         
-      <a href="#dstortd-img2">
+      <a href="#lightbox-dstortd_2.JPG">
         <img src="dstortd_2.JPG" class="thumb">
       </a>
       <!-- Repeat for other photos -->
     </div>
 
     <!-- Lightbox containers -->
-    <div id="dstortd-img1" class="lightbox">
+    <div id="#lightbox-main_dstortd.JPG" class="lightbox">
       <a href="#" class="close"></a>
       <img src="main_dstortd.JPG">
     </div>
 
-    <div id="dstortd-img2" class="lightbox">
+    <div id="lightbox-dstortd_2.JPG" class="lightbox">
       <a href="#" class="close"></a>
       <img src="dstortd_2.JPG">
     </div>
@@ -889,6 +889,17 @@
         
         // Modal functionality
         const campaigns = {
+            'dstortd-campaign': {
+            title: 'Dstortd Tempe Sneaker Store Campaign',
+                photos: [
+                    'main_dstortd.JPG',
+                    'dstortd_2.JPG', 
+                    'Dstortd Campaign Photo 3',
+                    'Dstortd Campaign Photo 4',
+                    'Dstortd Campaign Photo 5',
+                    'Dstortd Campaign Photo 6'
+                ]
+            },
             'luxury-brand': {
                 title: 'Luxury Fashion Brand',
                 photos: [
